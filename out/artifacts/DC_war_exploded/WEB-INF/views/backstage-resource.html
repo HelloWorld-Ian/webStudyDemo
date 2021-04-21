@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>鸿鹄学苑  用户中心</title>
+   <meta name="description" content=""/>
+   <!--等待组员讨论-->
+   <meta name="keywords" content=""/> 
+   <link rel="icon" href="../../xueyuan.ico" type="image/x-icon">
+   <link rel="stylesheet" href="../../css/backstage.css">
+   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+   <link href="../../css/jquery.filer.css" type="text/css" rel="stylesheet" />
+   <link href="../../css/jquery.filer-dragdropbox-theme.css" type="text/css" rel="stylesheet" />
+   <link rel="stylesheet" href="../../css/nice-select.css">
+   <!-- <link href="css/styles.imageuploader.css" rel="stylesheet" type="text/css"> -->
+   <script src="../../js/jQuery-min.js"></script>
+<!--   <script src="../../js/backstage.js"></script>-->
+   <script src="../../js/jquery.filer.min.js"></script>
+   <script src="../../js/jquery.nice-select.js"></script>
+</head>
+ <style>
+   /* .resource_sort{
+       z-index: 999;
+       position: absolute;
+       width: 500px;
+       height: 300px;
+       background-color: blueviolet;
+       top: 10%;
+       left: 35%;
+   } */
+   .main_box_resource {
+    position: relative;
+    width: 1200px;
+    height: 800px;
+    margin: 0 auto;
+    background-color: rgb(246, 246, 246);
+    overflow: hidden;}
+    .nice-select.wide{
+      width: 44%;
+     border-color: rgba(0, 95, 139, 0.459);
+    }
+    
+ </style>
+ <body>
+  <header>
+            
+    <div class="top_nav">
+     <ul class="nav nav-pills">
+         <li role="presentation" class="active"><a href="/">鸿浩学苑</a></li>
+         <li role="presentation"><a href="#">提问</a></li>
+         <li role="presentation"><a href="#">树洞</a></li>
+       </ul>
+
+
+     <form class="navbar-form navbar-left" role="search">
+         <div class="form-group">
+           <input type="text" class="form-control" placeholder="Search">
+         </div>
+         <button type="button" class="btn btn-default" id="search">搜索</button>
+       </form>
+
+ 
+     <ul class="nav nav-pills">
+         <li role="presentation" id="login"><a href="/view/register">登陆/注册</a></li>
+         <li role="presentation " style="display: none;" id="user">
+             <a href="/view/backstage">个人中心</a>
+         </li>
+         <!-- 个人中心 这个部分先隐藏 -->
+         <li role="presentation"><a href="#">收藏</a></li>
+         <li role="presentation"><a href="#">动态</a></li>
+         <li role="presentation"><a href="#">消息</a></li>
+       </ul>
+    </div>
+
+</header>
+ <main>
+       
+    <div class="main_box_resource">
+        <div class="left_nav">
+            <ul class="menu">
+              <li class="item">
+                <a href="/view/backstage" class="btn_nav"><i class="iconfont"></i>首页</a>
+              </li>
+              <li class="item" >
+                <a href="javascript:void(0);" class="btn_nav"><i class="iconfont "></i>提问与创作</a>
+                <div class="smenu">
+                    <a href="/view/backstage-question">提问题</a>
+                    <a href="/view/backstage-question">答问题</a>
+                    <a href="/view/backstage-writing">写文章</a>
+                </div>
+              </li>
+              <li class="item">
+                <a href="javascript:void(0);" class="btn_nav"><i class="iconfont "></i>资源管理</a>
+                <div class="smenu">
+                    <a href="/view/backstage_resource">上传资源</a>
+                    <a href="/view/backstage_storage">资源仓库</a>
+                </div>
+              </li>
+              <li class="item">
+                <a href="javascript:void(0);" class="btn_nav"><i class="iconfont "></i>设置</a>
+                <div class="smenu" >
+                  <a href="javascript:void(0);">账号密码</a>
+                  <a href="javascript:void(0);">其它</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        <div class="right_main">
+       <div class="indication-first">
+        <div class="list_inform">
+          <strong>上传资源</strong>
+        </div>
+        <div>
+          <input type="file" name="files[]" id="filer_input" multiple="multiple">
+          <div class="content-edit-form">
+            <div class="edit-form-item one-row">
+              <label for="realname" class="edit-form-label">资源名称</label>
+              <div class="edit-form-item-content">
+                <div class="form-input">
+                  <input  type="text" autocomplete="off" id="file_name" placeholder="请输入名称" class="form-input-inner">
+                </div>
+              </div>
+           </div>
+           <div class="edit-form-item one-row">
+            <label for="realname" class="edit-form-label" >资源简介</label>
+            <div class="edit-form-item-content">
+              <div class="form-input">
+                <input  type="text" autocomplete="off" id="file_text" placeholder="请输入资源的简介" class="form-input-inner">
+              </div>
+            </div>
+         </div>
+       <div class="edit-form-item one-row">
+        <label for="realname" class="edit-form-label">文件分类</label>
+        <div class="edit-form-item-content">
+          <div class="form-input">
+            <select class="wide" id="file_sort">
+			        <option data-display="其它" value="其它">其它</option>
+			        <option value="大学基础课">大学基础课</option>
+			        <option value="本科专业课">本科专业课</option>
+			        <option value="个人收藏" >个人收藏</option>
+			        <option value="文学娱乐">文学娱乐</option>
+			      </select>
+          </div>
+        </div>
+     </div>
+          </div>
+          <input type="button"  class="btn btn-danger" id="submitFile" value="上传文件">
+        </div>
+       </div>
+         </div>
+      
+    </div>
+
+</main>
+<script type="text/javascript">
+     $(document).ready(function() {
+     $('#filer_input').filer({
+    showThumbs:true,
+    changeInput: true,
+     });       
+});//配置文件上传
+$(document).ready(function() {
+	  $('select:not(.ignore)').niceSelect();      
+	});
+
+$("#submitFile").click(function () {
+    let file=$("#filer_input")[0].files[0];
+    let file_name=$("#file_name").val();
+    let file_text=$("#file_text").val();
+    let file_sort=$("#file_sort").val();
+    let file_realName=file.name;
+    let str=$(".jFiler-item-info.pull-left>.jFiler-item-others").html();
+    str=str.replace(/<span>/g,",").replace(/<\/span>/g,",")
+    let info=str.split(",");
+    let size=info[1].replace("size:","").replace(/\s/g,"");
+    let type=info[3].replace("type:","").replace(/\s/g,"");
+    let time=new Date();
+    let file_time=time.toLocaleString()
+    if(file_name===null||file_name===""){
+        alert("资源名称不能为空!");
+        return ;
+    }
+    $.post("/Info/FileInfo",
+           {file_name:file_name,file_text:file_text,
+               file_sort:file_sort,file_time:file_time,
+               file_realName:file_realName,sort:0,
+               size:size,type:type},
+        function (data) {
+        alert(data);
+    })
+    let formData=new FormData();
+    formData.append("file",file);
+    $.ajax({
+        url:"/FileOperate/UploadFile",
+        contentType:false,
+        processData:false,
+        method:"post",
+        data:formData,
+        success:function (data) {
+            alert(data)
+        },
+        error:function (){
+            alert("error")
+        }
+    })
+})
+     window.onload=function () {
+         $.get("/Login/getSessionID",{},function (user) {
+             if(user===""){
+                 alert("您还未登录，请尽快登录");
+             }else{
+                 $("#login").css("visibility","hidden");
+                 $("#user").css("display","block");
+             }
+         })
+         $(".btn_nav").on("click",function(){
+             $(this).siblings(".smenu").toggleClass("maxmore");
+             $(this).parent().siblings(".item").find(".smenu").removeClass("maxmore");
+         });
+     }
+     $("#search").click(function () {
+         location.assign("/view/search_presentation");
+     })
+</script>
+ </body>
+</html>

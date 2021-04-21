@@ -1,0 +1,151 @@
+
+.left-main_{
+    width: 700px;
+    background-color: #fff;
+    padding: 16px 20px 0 20px;
+    margin-top: 20px;
+}
+.article-title{
+    font-size: 25px;
+    font-weight: bold;
+}
+.author-box{
+    margin:10px 0;
+    display: flex;
+}
+.author-box .nick-name{
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: bold;
+    color: #fc5531;
+    /* background-color: rgba(51, 122, 183, .3); */
+    /* background-image: linear-gradient(to right,rgba(51,122,183,.1), rgba(51,122,183,1)); */
+    background-color: #fff5f2;
+    cursor: pointer;
+}
+.article-number{
+    padding: 0 0 0 20px;
+    color: #999aaa;
+}
+.browse-number{
+    margin-right: 15px;
+}
+.function-button-list,.someinformation{
+    color: #999aaa;
+}
+.function-button-list{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    height: 54px;
+}
+.function-button-list span{
+    font-size: 16px;
+}
+.article-content-inner p{
+    margin: 21px 0;
+}
+.comment-xiaoitem,.storage-box{
+    cursor: pointer;
+    margin-right: 20px;
+}
+.rtalk2{
+    position: relative;
+    margin-top: 20px;
+    width: 430px;
+    height: 185px;
+    background-color:  rgb(255,255,255);
+    background-image: url(../img/csu_fianced.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.rtalk2>.thanks_csu{
+    position: absolute;
+    bottom: 0;
+    font-size: medium;
+    font-weight: bold;
+    left: 20%;
+    color: #ff4d59;
+}
+.top_footer{
+
+    margin-top: 10px;
+}
+.top_footer{
+    line-height: 20px;
+    font-family: 'icomoon';
+    font-size: 15px;
+    color: #999aaa;
+    float: left;
+    margin-bottom: 15px;
+    word-spacing: 16px;
+}
+.comment-box{
+    width: 700px;
+}
+.comments-container{
+    height: 100%;
+    margin-top: 12px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgb(18 18 18 / 10%);
+    border: 1px solid #ebebeb;
+}
+.comment-topbar{
+    height: 50px;
+    padding: 0 20px;
+    line-height: 50px;
+    font-size: 15px;
+    font-weight: bold;
+    border-bottom: 1px solid #f6f6f6;
+}
+.comment-item-box{
+    height: 104px;
+    padding: 12px 20px;
+    border-bottom: 1px solid #f6f6f6;
+}
+.comment-meta{
+   height: 24px;
+   display: flex;
+   justify-content: space-between;
+}
+.user-name{
+    font-size: 15px;
+    font-weight: bold;
+}
+.comment-time{
+    color: #999aaa;
+}
+.comment-bottom{
+    padding: 0 0 0 30px;
+}
+.comment-content{
+  margin-bottom: 6px;
+  line-height: 25px;
+  color: #121212;
+  font-size: 15px;
+}
+.comment-footer{
+    margin-top: 5px;
+    
+}
+.comment-footer>span{
+    color: #999aaa;
+    cursor: pointer;
+    margin-right: 20px;
+    font-size: 16px;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.comment-footer span::before{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.delete-self{
+  display: inline-block;
+  color: #999aaa;
+  cursor: pointer;
+}

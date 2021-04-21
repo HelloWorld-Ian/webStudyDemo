@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鸿鹄学苑</title>
+   <meta name="description" content=""/>
+   <!--等待组员讨论-->
+   <meta name="keywords" content=""/> 
+   <link rel="icon" href="../../xueyuan.ico" type="image/x-icon">
+   <link rel="stylesheet" href="../../css/backstage.css">
+   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../../css/article-presentation.css">
+   <script src="../../js/jQuery-min.js"></script>
+   <script src="../../bootstrap/js/bootstrap.min.js"></script>
+
+   <style>
+      .main_box_resource {
+    position: relative;
+    width: 1200px;
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    overflow: hidden;}
+    body{
+        background-color: rgb(246, 246, 246);
+        background-size: cover;
+    }
+    .comments-container,body>header{
+        background-color: #fff;
+    }
+    .comment-part{
+        margin-top: 20px;
+        display: none;
+    }
+    .pagination{
+       margin-left: 50px;
+    }
+   </style>
+   </head>
+   <body>
+    <header>          
+        <div class="top_nav">
+         <ul class="nav nav-pills">
+             <li role="presentation" class="active"><a href="/">鸿浩学苑</a></li>
+             <li role="presentation"><a href="#">提问</a></li>
+             <li role="presentation"><a href="#">树洞</a></li>
+           </ul>
+   
+
+         <form class="navbar-form navbar-left" role="search">
+             <div class="form-group">
+               <input type="text" class="form-control" placeholder="Search">
+             </div>
+             <button type="button" class="btn btn-default" id="search">搜索</button>
+           </form>
+ 
+     
+         <ul class="nav nav-pills">
+             <li role="presentation" id="login"><a href="/view/register">登陆/注册</a></li>
+             <li role="presentation " style="display: none;" id="user">
+                 <a href="/view/backstage">个人中心</a>
+             </li>
+             <li role="presentation"><a href="#">收藏</a></li>
+             <li role="presentation"><a href="#">动态</a></li>
+             <li role="presentation"><a href="#">消息</a></li>
+           </ul>
+        </div>
+ </header>  
+ <main>
+    <div class="main_box_resource">
+    <div class="first-main">
+        <div class="left-main_" id="article-part">
+<!--            <div class="article-title">你好</div>-->
+<!--            <div class="author-box">-->
+<!--                <span class="nick-name">小猪佩奇</span>-->
+<!--                <div class="article-number">-->
+<!--                    <span>共发表了</span>-->
+<!--                    <span class="thisnumber">10</span>-->
+<!--                    <span>篇文章</span>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="article-content">-->
+<!--                <div class="article-content-inner">-->
+<!--                    <p>你好</p>-->
+<!--                    <p>可以的</p>-->
+<!--                </div>-->
+<!--                <div class="article-bottom">-->
+<!--                    <div class="someinformation">-->
+<!--                        <span class="browse-number"><span class="glyphicon glyphicon-eye-open"></span>这里放浏览的人数</span>-->
+<!--                        <span class="edit-date">这里放编辑日期</span>-->
+<!--                    </div>-->
+<!--                    <div class="function-button-list">-->
+<!--                        <div class="comment-xiaoitem">-->
+<!--                            <span class=" glyphicon glyphicon-comment"></span>-->
+<!--                            <span>评论</span>-->
+<!--                        </div>-->
+<!--                        <div class="storage-box">-->
+<!--                            <span class="glyphicon glyphicon-save"></span>-->
+<!--                            <span>储存</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            -->
+        
+        </div>
+        <div class="comment-part">
+            <div class="comment-box">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="写下你的评论">
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-primary" disabled = "disabled">发布</button>
+                    </span>
+                </div>
+                <div class="comments-container">
+                    <div class="comment-topbar">
+                        <div class="topbar-title">
+                            <span>6条评论</span>
+                        </div>
+                    </div>
+                    <div class="comment-list">
+                        <div class="comment-item-box">
+                            <div class="comment-item-inner">
+                                <div class="comment-meta">
+                                    <span class="user-name">蜡笔小新</span>
+                                    <span class="comment-time">2000-11-21</span>
+                                </div>
+                                <div class="comment-bottom">
+                                    <div class="comment-content">
+                                        <div class="comment-content-text">这是一条评论这是一条评论这是一条评论这是一条评论</div>
+                                    </div>
+                                    <div class="comment-footer">
+                                        <span class="glyphicon glyphicon-thumbs-up"> 0</span>
+                                        <span class="glyphicon glyphicon-thumbs-down"> 0</span>
+                                        <div class="delete-self">
+                                            <span class="glyphicon glyphicon-trash">删除</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-item-box">
+                            <div class="comment-item-inner">
+                                <div class="comment-meta">
+                                    <span class="user-name">蜡笔小新</span>
+                                    <span class="comment-time">2000-11-21</span>
+                                </div>
+                                <div class="comment-bottom">
+                                    <div class="comment-content">
+                                        <div class="comment-content-text">这是一条评论这是一条评论这是一条评论这是一条评论</div>
+                                    </div>
+                                    <div class="comment-footer">
+                                        <span class="glyphicon glyphicon-thumbs-up"> 0</span>
+                                        <span class="glyphicon glyphicon-thumbs-down"> 0</span>
+                                        <div class="delete-self">
+                                            <span class="glyphicon glyphicon-trash">删除</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="pagination" id="pagination1"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <div class="right-main_">
+        <div class="rtalk2">
+               <div class="thanks_csu">
+                   感谢中南大学创新创业中心的资助
+               </div>
+           </div>
+       
+            <div class="top_footer">
+                <p>中南团队 招贤纳士 创新项目</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> 1923885137@qq.com <span class="glyphicon glyphicon-earphone"></span>18274309536</p>
+                <p class="copyright">&copy2020-now中南大学鸿浩学苑创新团队</p>
+                <p class="copyright"><span class="glyphicon glyphicon-home"></span>中南大学升华公寓</p>
+            </div>
+           
+        
+    </div>
+    </div>
+ </main>
+   </body>
+   <script src="../../js/jqPaginator.js"></script>
+   <script>
+       $('#pagination1').jqPaginator({
+    totalPages: 8,
+    visiblePages: 10,
+    currentPage: 1,
+ 
+    first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+    prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
+    next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+    last: '<li class="last"><a href="javascript:void(0);">末页</a></li>',
+    page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
+});
+//翻页栏的设置
+    
+       $(function(){
+        $(".comment-xiaoitem").on("click",function(){
+            $(".comment-part").slideToggle();
+        });
+        function addcomment(){
+        let date = new Date();
+        let year = date.getFullYear();
+        let month = date.getMonth() + 1;
+        let day = date.getDay();
+        let commit_time = year+'-'+month+'-'+day;
+        let username;//这里是用户昵称
+            $(".comment-list").prepend(`
+            <div class="comment-item-box">
+                    <div class="comment-item-inner">
+                        <div class="comment-meta">
+                            <span class="user-name">蜡笔小新</span>
+                            <span class="comment-time">${commit_time}</span>
+                        </div>
+                        <div class="comment-bottom">
+                            <div class="comment-content">
+                                <div class="comment-content-text">${$(".comment-box>.input-group>input").val()}</div>
+                            </div>
+                            <div class="comment-footer">
+                                <span class="glyphicon glyphicon-thumbs-up"></span>
+                                <span class="glyphicon glyphicon-thumbs-down"></span>
+                                <div class="delete-self">
+                                    <span class="glyphicon glyphicon-trash">删除</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `);//添加内容到评论区，这是页面添加信息的代码
+            $(".comment-box>.input-group>input").val("");//清空输入框的值
+        }
+    //发布评论的函数
+    $(".comment-box>.input-group>input").on("keyup",function(e){
+        if(e.keyCode == 8 && $(this).val() == ''){
+            $(".comment-box>.input-group>span>button").attr("disabled",true);
+            
+        }
+        else if($(this).val() !== ''){
+            $(".comment-box>.input-group>span>button").removeAttr("disabled");
+        }
+       if(e.keyCode === 13 && $(".comment-box>.input-group>span>button").attr("disabled") == undefined){
+           addcomment();
+       }
+    })
+    //这里是发布文章开关禁用的代码,和按回车键发布
+    $(".comment-list").on("click",".comment-footer>span",function(e){
+        if($(this).css("color") == "rgb(0, 0, 255)"){
+            return ;
+        }
+        $(this).css("color","blue");
+        let number = Number($(this).text().trim()) + 1;
+        $(this).text(" " + number);
+        if( $(this).siblings("span").css("color") == "rgb(0, 0, 255)"){
+            $(this).siblings("span").css("color","#999aaa");
+            let number = Number($(this).siblings("span").text().trim()) -1;
+            $(this).siblings("span").text(" " + number);
+        }
+        
+    })
+    //点赞与踩的部件,未来的动态创建元素也会自动绑定
+    $(".comment-box>.input-group>span>button").on("click",addcomment);
+    //按发布按钮的文章发布
+    $(".comment-list").on("click",".comment-footer>.delete-self>span",function(){
+        $(this).parents(".comment-item-box").remove();
+    })
+});
+   //删除按钮删除元素
+
+   //url获取参数
+   //     function getURLParam(name){
+   //         let Params_String=window.location.search.substring(1);
+   //         let Params=Params_String.split("&");
+   //         for(let i=0;i<Params.length;i++){
+   //             let divide=Params[i].split("=");
+   //             if(divide[0]===name)
+   //                 return divide[1];
+   //         }
+   //         return false;
+   //     }
+       function getURLParam(){
+           let Params_String=window.location.search.substring(1);
+           return Params_String.split("&");
+       }
+       let jsonObj={};
+       let jsonUserInfoObj={};
+       window.onload=function () {
+           let Params=getURLParam();
+           let title=null;
+           let blog_id=null;
+           for(let i=0;i<Params.length;i++){
+               let divide=Params[i].split("=");
+               if(divide[0]==="title") {
+                   title = decodeURI(divide[1]);
+               }
+               if(divide[0]==="blog_id") {
+                   blog_id =parseInt(divide[1]);
+               }
+           }
+           $.ajax({
+               url:"/Info/getBlogInfoWithText",
+               async:false,
+               method:"post",
+               data:{
+                   title:title,
+                   blog_id:blog_id
+               },
+               success:function (data) {
+                   jsonObj=JSON.parse(data);
+               }
+           })
+           $.ajax({
+               url:"/Info/getUserInfoWithUserId",
+               async:false,
+               method:"get",
+               success:function (data) {
+                   jsonUserInfoObj=JSON.parse(data);
+               }
+           })
+           addArticle(jsonObj,jsonUserInfoObj,"article-part");
+
+           $.get("/Login/getSessionID",{},function (user) {
+               if(user===""){
+                   alert("您还未登录，请尽快登录");
+               }else{
+                   $("#login").css("visibility","hidden");
+                   $("#user").css("display","block");
+               }
+           })
+       }
+       function addArticle(jsonBlog,jsonUserInfoObj,name) {
+           let div=$("#"+name)
+           div.append("<div class=\"article-title\">"+jsonBlog.title+"</div>\n" +
+               "<div class=\"author-box\">\n" +
+               "<span class=\"nick-name\">"+jsonUserInfoObj.user_id+"</span>\n" +
+               "<div class=\"article-number\">\n" +
+               "<span>共发表了</span>\n" +
+               "<span class=\"thisnumber\">"+jsonUserInfoObj.total_blog+"</span>\n" +
+               "<span>篇文章</span>\n" +
+               "</div>\n" +
+               "</div>\n" +
+               "<div class=\"article-content\">\n" +
+               "<div class=\"article-content-inner\">\n" +
+               jsonBlog.text+
+               "</div>\n" +
+               "<div class=\"article-bottom\">\n" +
+               "<div class=\"someinformation\">\n" +
+               "<span class=\"browse-number\"><span class=\"glyphicon glyphicon-eye-open\"></span>这里放浏览的人数</span>\n" +
+               "<span class=\"edit-date\">"+jsonBlog.time+"</span>\n" +
+               "</div>\n" +
+               "<div class=\"function-button-list\">\n" +
+               "<div class=\"comment-xiaoitem\" id='showComment'>\n" +
+               "<span class=\" glyphicon glyphicon-comment\"></span>\n" +
+               "<span>评论</span>\n" +
+               "</div>\n" +
+               "<div class=\"storage-box\">\n" +
+               "<span class=\"glyphicon glyphicon-save\"></span>\n" +
+               "<span>储存</span>\n" +
+               "</div>\n" +
+               "</div>\n" +
+               "</div>\n" +
+               "</div>")
+       }
+       $("#search").click(function () {
+           location.assign("/view/search_presentation");
+       })
+   </script>
+   </html>

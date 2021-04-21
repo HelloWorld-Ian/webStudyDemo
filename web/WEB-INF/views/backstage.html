@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>鸿鹄学苑  用户中心</title>
+   <meta name="description" content=""/>
+   <!--等待组员讨论-->
+   <meta name="keywords" content=""/> 
+   <link rel="icon" href="../../xueyuan.ico" type="image/x-icon">
+   <link rel="stylesheet" href="../../css/backstage.css">
+   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../../css/date.css">
+   <link rel="stylesheet" href="../../css/laydate.css">
+   <script src="../../js/jQuery-min.js"></script>
+   <script src="../../js/date.js"></script>
+   <script src="../../js/Popt.js"></script>
+   <script src="../../js/cityJson.js"></script>
+   <script src="../../js/citySet.js"></script>
+   <script src="../../js/laydate.js"></script>
+   <script src="../../js/backstage.js"></script>
+    <script>
+      
+   </script>
+   <style>
+  
+   </style>
+</head>
+<body>
+    <header>
+            
+           <div class="top_nav">
+            <ul class="nav nav-pills">
+                <li role="presentation" class="active"><a href="/">鸿浩学苑</a></li>
+                <li role="presentation"><a href="#">提问</a></li>
+                <li role="presentation"><a href="#">树洞</a></li>
+              </ul>
+      
+  
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="button" class="btn btn-default" id="search">搜索</button>
+              </form>
+    
+        
+            <ul class="nav nav-pills">
+                <li role="presentation" id="login"><a href="/view/register">登陆/注册</a></li>
+                <li role="presentation " style="display: none;" id="user">
+                    <a href="/view/backstage">个人中心</a>
+                </li>
+                <li role="presentation"><a href="#">收藏</a></li>
+                <li role="presentation"><a href="#">动态</a></li>
+                <li role="presentation"><a href="#">消息</a></li>
+              </ul>
+           </div>
+       
+    </header>
+    <main>
+       
+            <div class="main_box">
+                <div class="left_nav">
+                    <ul class="menu">
+                      <li class="item">
+                        <a href="javascript:void(0);" class="btn_nav"><i class="iconfont"></i>首页</a>
+                      </li>
+                      <li class="item" >
+                        <a href="javascript:void(0);" class="btn_nav"><i class="iconfont "></i>提问与创作</a>
+                        <div class="smenu">
+                          <a href="/view/backstage-question">提问题</a>
+                          <a href="/view/backstage-question">答问题</a>
+                          <a href="/view/backstage-writing">写文章</a>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <a href="javascript:void(0);" class="btn_nav"><i class="iconfont "></i>资源管理</a>
+                        <div class="smenu">
+                          <a href="/view/backstage_resource">上传资源</a>
+                          <a href="/view/backstage_storage">资源仓库</a>
+                        </div>
+                      </li>
+                      <li class="item">
+                        <a href="javascript:void(0);" class="btn_nav"><i class="iconfont "></i>设置</a>
+                        <div class="smenu" >
+                          <a href="/view/backstage_password">账号密码</a>
+                          <a href="javascript:void(0);">其它</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                <div class="right_main">
+                 <div class="indication-first">
+                  <div class="list_inform">
+                    <strong>基本信息</strong>
+                    <div class="to-edit-first"><a href="###"><span>编辑</span></a></div>
+                  </div>
+                  <div class="list_item">
+                    <ul>
+                      <li>
+                      <div class="front_item">
+                      <span>用</span>
+                      <span>户</span>
+                      <span>昵</span>
+                      <span>称</span>
+                      </div>
+                      <div class="latter_item" id="id_display"></div>
+                     </li>
+                     <li>
+                       <div class="front_item">
+                        <span>真</span>
+                        <span>实</span>
+                        <span>姓</span>
+                        <span>名</span>
+                       </div>
+                       <div class="latter_item" id="name_display"></div>
+                      </li>
+                      <li>
+                       <div class="front_item">
+                        <span>性</span>
+                        <span>别</span>
+                       </div>
+                       <div class="latter_item" id="sex_display"></div>
+                      </li>
+                      <li>
+                        <div class="front_item">
+                        <span>个</span>
+                        <span>人</span>
+                        <span>简</span>
+                        <span>介</span>
+                        </div>
+                        <div class="latter_item" id="text_display"></div>
+                       </li>
+                      <li>
+                       <div class="front_item">
+                        <span>所</span>
+                        <span>在</span>
+                        <span>地</span>
+                        <span>区</span>
+                       </div>
+                       <div class="latter_item" id="city_display"></div>
+                      </li>
+                      <li>
+                       <div class="front_item">
+                        <span>生</span>
+                        <span>日</span>
+                        <span>日</span>
+                        <span>期</span>
+                      </div>
+                       <div class="latter_item" id="date_display"></div>
+                      </li>
+                    </ul>
+                  </div>
+                 </div>
+                 <div class="indication-first-settings">
+                  <div class="list_inform"><strong>基本信息</strong></div>
+                  <div class="content-edit">
+                    <form class="content-edit-form">
+                     <div class="edit-form-item one-row">
+                       <label for="nickname" class="edit-form-label">用户昵称</label>
+                       <div class="edit-form-item-content">
+                        <div class="form-input">
+                          <input  type="text" autocomplete="off" placeholder="请输入昵称" class="form-input-inner" id="id">
+                        </div>
+                       </div>
+                     </div>
+                     <div class="edit-form-item">
+                      <label for="realname" class="edit-form-label">真实姓名</label>
+                      <div class="edit-form-item-content">
+                        <div class="form-input">
+                          <input  type="text" autocomplete="off" placeholder="请输入真实姓名" class="form-input-inner" id="name">
+                        </div>
+                      </div>
+                     </div>
+                     <div class="edit-form-item">
+                      <label for="sex" class="edit-form-label">性别</label>
+                      <div class="edit-form-item-content">
+                        <div class="form-input">
+                          <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="男" > 男
+                          </label>
+                          <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="女"> 女
+                          </label>
+                        </div>
+                      </div>
+                     </div>
+                     <div class="edit-form-item">
+                      <label  for="city" class="edit-form-label">所在地区</label>
+                      <div class="edit-form-item-content">
+                        <div class="form-input">
+                          <input  type="text" autocomplete="off" placeholder="请选择地区" class="form-input-inner" id="city">
+                        </div>
+                      </div>
+                     </div>
+                     <div class="edit-form-item">
+                      <label for="birthday" class="edit-form-label">生日日期</label>
+                      <div class="edit-form-item-content">
+                        <div class="form-input" id="date">
+                          <!-- <input  type="text" autocomplete="off" placeholder="请输入昵称" class="form-input-inner"> -->
+                            <input type="text" value="" autocomplete="off" placeholder="请设置你的出生日期" id="inputdate" class="form-input-inner">
+                        </div>
+                      </div>
+                     </div>
+                     <div class="edit-form-item one-row">
+                      <label for="individual-resume" class="edit-form-label">个人简介</label>
+                      <div class="edit-form-item-content">
+                        <div class="form-textarea">
+                          <textarea autocomplete="off" maxlength="300" placeholder="你很懒，还没有添加简介" class="el-textarea__inner" style="resize: none; min-height: 33px;" id="introduction"></textarea>
+                        </div>
+                      </div>
+                     </div>
+                     <div class="edit-form-item one-row">
+                      <label  class="edit-form-label"></label>
+                      <div class="edit-button-content-first">
+                        <button type="button" class="btn btn-default">取消</button>
+                        <button type="button" class="btn btn-danger" id="basic_submit">确定</button>
+                      </div>
+                     </div>
+                    </form>
+                  </div>
+                 </div>
+                 <div class="indication-second">
+                  <div class="list_inform">
+                    <strong>教育信息</strong>
+                    <div class="to-edit-second"><a href="###"><span>编辑</span></a></div>
+                  </div>
+                  <div class="list_item">
+                    <ul>
+                      <li>
+                      <div class="front_item">
+                        <span>学</span>
+                        <span>校</span>
+                        <span>名</span>
+                        <span>称</span>  
+                      </div>
+                      <div class="latter_item" id="schoolDisplay"></div>
+                     </li>
+                     <li>
+                       <div class="front_item">
+                        <span>专</span>
+                        <span>业</span>
+                       </div>
+                       <div class="latter_item" id="majorDisplay"></div>
+                      </li>
+                      <li>
+                       <div class="front_item">
+                        <span>入</span>
+                        <span>学</span>
+                        <span>时</span>
+                        <span>间</span>
+                       </div>
+                       <div class="latter_item" id="timeDisplay"></div>
+                      </li>
+                      <li>
+                       <div class="front_item">
+                        <span>学</span>
+                        <span>历</span>
+                       </div>
+                       <div class="latter_item" id="backgroundDisplay"></div>
+                      </li>
+                    </ul>
+                  </div>
+                 </div>
+                 <div class="indication-second-settings">
+                  <div class="list_inform"><strong>教育信息</strong></div>
+                  <div class="content-edit">
+                    <form class="content-edit-form">
+                      <div class="edit-form-item">
+                        <label for="shoolname" class="edit-form-label">学校名称</label>
+                        <div class="edit-form-item-content">
+                          <div class="form-input">
+                            <input  type="text" autocomplete="off" placeholder="请输入学校名称" id="school" class="form-input-inner">
+                          </div>
+                        </div>
+                       </div>
+                       <div class="edit-form-item">
+                        <label for="specialty" class="edit-form-label">专业</label>
+                        <div class="edit-form-item-content">
+                          <div class="form-input">
+                            <input  type="text" autocomplete="off" placeholder="请输入专业名称" id="major" class="form-input-inner">
+                          </div>
+                        </div>
+                       </div>
+                       <div class="edit-form-item">
+                        <label for="in-shool-time" class="edit-form-label">入学时间</label>
+                        <div class="edit-form-item-content">
+                          <div class="form-input">
+                            <input  type="text" autocomplete="off" placeholder="请输入入学时间"  class="form-input-inner" id="year-select">
+                          </div>
+                        </div>
+                       </div>
+                       <div class="edit-form-item">
+                        <label for="education-background" class="edit-form-label">学历</label>
+                        <div class="edit-form-item-content">
+                          <div class="form-input">
+                            <input  type="text" autocomplete="off" placeholder="请输入学历名称" id="background" class="form-input-inner">
+                          </div>
+                        </div>
+                       </div>
+                       <div class="edit-form-item one-row">
+                        <label  class="edit-form-label"></label>
+                        <div class="edit-button-content-second">
+                          <button type="button" class="btn btn-default" >取消</button>
+                          <button type="button" class="btn btn-danger" id="edu_submit">确定</button>
+                        </div>
+                       </div>
+                    </form>
+                  </div>
+                 </div>
+                </div>
+            </div>
+      
+    </main>
+    <script>
+      $(function(){
+        $(".to-edit-first>a").on("click",function(){
+          $(".indication-first").css("display","none");
+          $(".indication-first-settings").css("display","block");
+        });
+        $(".to-edit-second>a").on("click",function(){
+          $(".indication-second").css("display","none");
+          $(".indication-second-settings").css("display","block");
+        });
+        $(".edit-button-content-first>button").on("click",function(){
+          $(".indication-first").css("display","block");
+          $(".indication-first-settings").css("display","none");
+        })
+        $(".edit-button-content-second>button").on("click",function(){
+          $(".indication-second").css("display","block");
+          $(".indication-second-settings").css("display","none");
+        })
+          $.get("/Login/getSessionID",{},function (user) {
+              if(user===""){
+                  alert("您还未登录，请尽快登录");
+              }else{
+                  $("#login").css("visibility","hidden");
+                  $("#user").css("display","block");
+              }
+          })
+      })
+
+      $("#basic_submit").click(function () {
+          let user_id=$("#id").val();
+          let user_name=$("#name").val();
+          let user_date=$("#inputdate").val();
+          let user_city=$("#city").val();
+          let user_introduction=$("#introduction").val();
+          let sex_male=$("#inlineRadio1");
+          let sex_female=$("#inlineRadio2");
+          let user_sex=sex_male.prop("checked")===true?sex_male.val():sex_female.val();
+          $.post("/Info/Basic",{user_id:user_id,user_name:user_name,user_sex:user_sex,
+          user_introduction:user_introduction,user_city:user_city,user_date:user_date},function (res) {
+              alert(res);
+              location.reload();
+          },"text")
+      })
+
+      $("#edu_submit").click(function () {
+          let school=$("#school").val();
+          let time=$("#year-select").val();
+          let major=$("#major").val();
+          let background=$("#background").val();
+          $.post("/Info/Edu",{school:school,time:time,major:major,background:background},function (res) {
+              location.reload();
+          },"text")
+      })
+      $("#search").click(function () {
+          location.assign("/view/search_presentation");
+      })
+    </script>
+</body>
+</html>

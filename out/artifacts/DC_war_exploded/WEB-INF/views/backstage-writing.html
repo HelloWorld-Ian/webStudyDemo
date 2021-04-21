@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>鸿鹄学苑  用户中心</title>
+   <meta name="description" content=""/>
+   <!--等待组员讨论-->
+   <meta name="keywords" content=""/> 
+   <link rel="icon" href="../../xueyuan.ico" type="image/x-icon">
+   <link rel="stylesheet" href="../../css/backstage.css">
+   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="../../writing-edit/css/font-awesome.min.css">
+	<link href="../../writing-edit/css/froala_editor.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="../../writing-edit/css/themes/gray.min.css">
+  <link rel="stylesheet" type="text/css" href="../../css/drop-down.css">
+   <script src="../../js/jQuery-min.js"></script>
+   <script src="../../bootstrap/js/bootstrap.min.js"></script>
+   <script src="../../js/jquery-ui.min.js"></script>
+   <script src="../../js/select-widget-min.js"></script>
+</head>
+ <style>
+   
+        nav{
+          display: flex;
+          height: 56px;
+          width: 100%;
+          align-items: center;
+          background-color: rgb(172, 168, 172);
+        }
+        section {
+            width: 100%;
+            text-align: left;
+        }
+        nav>.input-group{
+          width: 950px;
+          position: relative;
+        
+        }
+        .writing-nav-left{
+          height: 17px;
+          font-size: 20px;
+          width: 120px;
+          line-height: 17px;
+          margin-left: 50px;
+          margin-top: -10px;
+          cursor: pointer;
+        }
+        .form-control{
+          width: 100%;
+         padding: 8px!important;
+         padding-left: 16px!important;
+          font-size: 18px!important;
+         line-height: 24px!important;
+          background-color: #fff!important;
+          background-image: none!important;
+          border: 0!important;
+         border-radius: 20px!important;
+        display: block!important;
+          height: 38px!important;
+      }
+      .right-button-set{
+        display: flex;
+        margin-left: 30px;
+      }
+      .right-button-set>div{
+        margin-right: 15px;
+        padding: 5px 12px;
+        font-size: 16px;
+        color: #337ab7;
+        border: 1px solid #337ab7;
+        border-radius: 18px;
+        white-space: nowrap;
+        background-color: #fff;
+      }
+      .right-button-set>.writing-commit:hover{
+          background-color:#337ab7 ;
+          color: #fff;
+          cursor: pointer;
+      }
+      .right-button-set>.writing-draft{
+          background-color: rgb(117,112,107);
+          color: #fff;
+          border: 1px solid rgb(117,112,107);
+          cursor: pointer;
+      }
+      .a-writing{
+         color: rgb(117,112,107)!important;
+      }
+      .a-writing:hover{
+        text-decoration: none;
+      }
+      .dialog-wraper{
+        display: none;
+        background-color: hsla(0,0%,63.1%,.5)!important;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        }
+        .writing-commit-box{
+         display: none;
+          min-height: inherit;
+          border-radius: 4px;
+          border: 1px solid #e3e3e3;
+          -webkit-box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+          box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+          padding: 24px 24px 0;
+          width: 616px;
+          height: 440px;
+          overflow-y: auto;
+          position: fixed;
+          left: 30%;
+          top: 5%;
+          z-index: 111;
+          background-color: #fff;
+        }
+        .writing-commit-box>.commit-close-box{
+          display: flex;
+          width: 100%;
+          justify-content: space-between;
+          margin-bottom: 20px;
+        }
+        .commit-close-box>h2{
+          display: block;
+          font-size: 18px;
+          font-weight: bold;
+        }
+        .commit-close-box>span{
+          display: flex;
+          align-items: center;
+          color: hsla(0,0%,63.1%,.5);
+          font-size: 20px;
+          cursor: pointer;
+        }
+        .writing-commit-box>.edit-form-item{
+           margin-bottom: 25px;
+        }
+        .bottom-list-box{
+          position: absolute;
+          bottom: 20px;
+          right: 20px;
+        }
+        .bottom-list-box>button{
+          color: #333;
+          background-color: transparent;
+          display: inline-block;
+          height: auto;
+          padding: 6px 12px;
+          margin-bottom: 0;
+          font-weight: 400;
+          line-height: 1.4;
+          text-transform: uppercase;
+          text-align: center;
+          white-space: nowrap;
+          vertical-align: middle;
+          -ms-touch-action: manipulation;
+          touch-action: manipulation;
+          cursor: pointer;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          text-decoration: none;
+          background-image: none;
+          border: 0;
+          border-radius: 4px;
+        }
+        .bottom-list-box>.button-draft{
+          color: #337ab7;
+        }
+        .bottom-list-box>.button-article{
+          color: #fc5531;
+        }
+        .bottom-list-box>button:hover{
+          background-color: hsla(0,0%,63.1%,.5);
+        }
+        .ui-select{
+          margin-left: 20px;
+          width: 100px;
+          height: 30px;
+        }
+ </style>
+ <body>
+ <main>
+           <div>
+           <nav>
+             <a href="backstage.html" class="a-writing">
+              <div class="writing-nav-left">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span>个人中心</span>
+             </a>
+             </div>
+             <div class="input-group">
+              <input type="text" class="form-control" placeholder="输入文章的标题" id="title">
+              </div>
+              <div class="right-button-set">
+                <div class="writing-commit" id="submit-ready" >发布文章</div>
+                <div class="writing-draft">保存草稿</div>
+              </div>
+           </nav>
+            <section id="editor">
+              <div id='edit'>
+
+              </div>
+          </section>
+          <div class="dialog-wraper">
+           <div class="writing-commit-box">
+                <div class="commit-close-box">
+                  <h2>发布文章</h2>
+                  <span class="glyphicon glyphicon-remove"></span>
+                </div>
+                <div class="edit-form-item">
+                  <label for="article-brief" class="edit-form-label">文章简介</label>
+                  <div class="edit-form-item-content">
+                    <div class="form-input">
+                      <input  type="text" autocomplete="off" placeholder="请输入文章简介" class="form-input-inner" id="briefIntro">
+                    </div>
+                  </div>
+                 </div>
+                 <div class="edit-form-item">
+                  <label for="article-sort" class="edit-form-label">文章分类</label>
+                  <select name="drop1" class="ui-select" id="sort">
+                    <option selected value="全部">全部</option>
+                    <option value="大学基础课">大学基础课</option>
+                    <option value="本科专业课">本科专业课</option>
+                    <option value="个人收藏">个人收藏</option>
+                    <option value="文学娱乐">文学娱乐</option>
+                    <option value="其他">其他</option>
+                  </select>
+                 </div> 
+                 <div class="edit-form-item">
+                  <label for="sex" class="edit-form-label">发布形式</label>
+                  <div class="edit-form-item-content">
+                    <div class="form-input" >
+                      <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="open" checked="checked"> 公开
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="secret"> 匿名
+                      </label>
+                    </div>
+                  </div>
+                 </div>
+                 <div class="bottom-list-box">
+                   <button class="button-cancel">取消</button>
+                   <button class="button-draft">仅保存为草稿</button>
+                   <button  id="submit">发布文章</button>
+                 </div>
+           </div>
+          </div>
+        </div>
+</main>
+  <script src="../../writing-edit/js/froala_editor.min.js"></script>
+  <script src="../../writing-edit/js/plugins/tables.min.js"></script>
+  <script src="../../writing-edit/js/plugins/lists.min.js"></script>
+  <script src="../../writing-edit/js/plugins/colors.min.js"></script>
+  <script src="../../writing-edit/js/plugins/media_manager.min.js"></script>
+  <script src="../../writing-edit/js/plugins/font_family.min.js"></script>
+  <script src="../../writing-edit/js/plugins/font_size.min.js"></script>
+  <script src="../../writing-edit/js/plugins/block_styles.min.js"></script>
+  <script src="../../writing-edit/js/plugins/video.min.js"></script>
+  <script>
+       $(function(){
+          $('#edit').editable({inlineMode: false,
+                               alwaysBlank: true,
+                               theme:'gray',
+                              height:'800px'
+                              })
+      });
+      $(function(){
+          $(".button-cancel").on("click",function(){
+            $(".dialog-wraper").hide();
+            $(".writing-commit-box").hide();
+          })
+          $(".commit-close-box>span").on("click",function(){
+            $(".dialog-wraper").hide();
+            $(".writing-commit-box").hide();
+          })
+          $.get("/Login/getSessionID",{},function (user) {
+              if(user===""){
+                  alert("您还未登录，请尽快登录");
+              }else{
+                  $("#login").css("visibility","hidden");
+                  $("#user").css("display","block");
+              }
+          })
+      });
+
+       $("#submit-ready").click(function () {
+           $(".dialog-wraper").css("display","block");
+           $(".writing-commit-box").css("display","block");
+       })
+
+      $("#submit").click(function () {
+          let text=$("#edit>.froala-element.not-msie.f-basic").html();
+          let title=$("#title").val();
+          let user_id=id;
+          let blog_id=total_blog+1;
+          let briefIntro=$("#briefIntro").val();
+          let sort=$("#sort").val();
+          let draft=false;
+          let choose=$("#inlineRadio1");
+          let condition=choose.prop("checked")===true?choose.val():$("#inlineRadio2").val();
+          let time=new Date();
+          let file_time=time.toLocaleString()
+          $.post("/FileOperate/storeBlog",{
+              text:text,
+              title:title,
+              user_id:user_id,
+              blog_id:blog_id,
+              briefIntro:briefIntro,
+              sortStr:sort,
+              draft:draft,
+              condition:condition,
+              time:file_time,
+          },function (data) {
+              alert(data);
+              location.assign("/view/backstage");
+          })
+          $.get("/Login/updateBlogTotal",{total_blog:total_blog},function () {
+          });
+
+      })
+
+       let id=-1;
+       let total_blog=-1;
+       window.onload=function () {
+           let jsonObj={};
+           $.ajax({
+               url:"/Login/getUserBlogTotal",
+               async:false,
+               success:function (data) {
+                   jsonObj=JSON.parse(data);
+                   id=jsonObj.id;
+                   total_blog=jsonObj.total_blog;
+               }
+           })
+
+       }
+       $("#search").click(function () {
+           location.assign("/view/search_presentation");
+       })
+  </script>
+ </body>
+</html>

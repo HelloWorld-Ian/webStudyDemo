@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鸿鹄学苑</title>
+   <meta name="description" content=""/>
+   <!--等待组员讨论-->
+   <meta name="keywords" content=""/> 
+   <link rel="icon" href="../../xueyuan.ico" type="image/x-icon">
+   <link rel="stylesheet" href="../../css/backstage.css">
+   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../../css/article-presentation.css">
+   <link rel="stylesheet" href="../../css/search-presentation.css">
+   <script src="../../js/jQuery-min.js"></script>
+   <script src="../../bootstrap/js/bootstrap.min.js"></script>
+        <style>
+      .main_box_resource {
+    position: relative;
+    width: 1200px;
+    align-items: flex-start;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    overflow: hidden;}
+    body{
+        background-color: rgb(246, 246, 246);
+        background-size: cover;
+    }
+    .comments-container,body>header{
+        background-color: #fff;
+    }
+    .pagination{
+       margin-left: 50px;
+    }
+   </style>
+   </head>
+   <body>
+    <header>          
+        <div class="top_nav">
+         <ul class="nav nav-pills">
+             <li role="presentation" class="active"><a href="/">鸿浩学苑</a></li>
+             <li role="presentation"><a href="#">提问</a></li>
+             <li role="presentation"><a href="#">树洞</a></li>
+           </ul>
+   
+
+         <form class="navbar-form navbar-left" role="search">
+             <div class="form-group">
+               <input type="text" class="form-control" placeholder="Search">
+             </div>
+             <button type="button" class="btn btn-default" id="search">搜索</button>
+           </form>
+ 
+     
+         <ul class="nav nav-pills">
+             <li role="presentation" id="login"><a href="/view/register">登陆/注册</a></li>
+             <li role="presentation " style="display: none;" id="user">
+                 <a href="/view/backstage">个人中心</a>
+             </li>
+             <li role="presentation"><a href="#">收藏</a></li>
+             <li role="presentation"><a href="#">动态</a></li>
+             <li role="presentation"><a href="#">消息</a></li>
+           </ul>
+        </div>
+ </header>  
+ <main>
+    <div class="main_box_resource">
+    <div class="first-main">
+      <div class="top-filter">
+      <span class="glyphicon glyphicon-th span-active"> 全站</span>
+      <span class="glyphicon glyphicon-pencil"> 文章</span>
+      <span class="glyphicon glyphicon-folder-close"> 资源</span>
+      <span class="glyphicon glyphicon-search"> 问题</span>
+      </div>
+      <div class="sort-filter">
+          <div class="sort-text">
+              <span class="sort-span-active">综合排序</span>
+              <span>最新优先</span>
+              <span>热度优先</span>
+          </div>
+          <div class="search-result">
+            <span>共搜索到</span>
+            <span class="result-number">127</span>
+            <span>个结果</span></div>
+      </div>
+      <div class="wrap-search-box">
+        <div class="search-none" style="display: none;">什么都没有搜到.....</div>
+        <div class="searchbox-list">
+          <div class="search-box-item">
+            <div class="search-box-title">C++教程(最全)</div>
+            <div class="brief-box">C++简介</div>
+            <div class="foot-information">
+              <div class="information-box">
+                <div class="time-box">2021-2-1</div>
+                <div class="property-box">文章</div>
+                <div class="broswer-number"><span class="glyphicon glyphicon-eye-open"></span> 20</div>
+                <div class="author">蜡笔小新</div>
+              </div>
+            </div>
+          </div>
+          <div class="search-box-item">
+            <div class="search-box-title">C++初学者必看的50个建议 绝对经典</div>
+            <div class="brief-box">1.把C++当成一门新的语言学习（和C没啥关系！真的。）； 2.看《Thinking In C++》，不要看《C++变成死相》； 3.看《The C++ Programming Language》和《Inside The C++ Object Model》,不要因为他们很难而我们自己...</div>
+            <div class="foot-information">
+              <div class="information-box">
+                <div class="time-box">2021-2-4</div>
+                <div class="property-box">文章</div>
+                <div class="broswer-number"><span class="glyphicon glyphicon-eye-open"></span> 10</div>
+                <div class="author">greedy</div>
+              </div>
+            </div>
+          </div>
+          <div class="search-box-item">
+            <div class="search-box-title">C++中的 ::</div>
+            <div class="brief-box">C++中的双冒号 :: 第一种,类作用域,用来标明类的变量、函数 Human::setName(char*name); 1 第二种,命名空间作用域,用来注明所使用的类、函数属于哪一个命名...</div>
+            <div class="foot-information">
+              <div class="information-box">
+                <div class="time-box">2021-2-14</div>
+                <div class="property-box">文章</div>
+                <div class="broswer-number"><span class="glyphicon glyphicon-eye-open"></span> 8</div>
+                <div class="author">有梦想的伟仔</div>
+              </div>
+            </div>
+          </div>
+          <div class="search-box-item">
+            <div class="search-box-title">C++中的#和##</div>
+            <div class="brief-box">C++中的#和## #include<iostream> #definet(x) hello##x//合并操作符##将出现在其左右的字符序列合并成一个新的标识符 #defines(y) #y//将传入的参数...</div>
+            <div class="foot-information">
+              <div class="information-box">
+                <div class="time-box">2021-2-12</div>
+                <div class="property-box">文章</div>
+                <div class="broswer-number"><span class="glyphicon glyphicon-eye-open"></span> 13</div>
+                <div class="author">阿瓜呱呱</div>
+              </div>
+            </div>
+          </div>
+          <div class="search-box-item">
+            <div class="search-box-title">C++ sort排序函数用法</div>
+            <div class="brief-box">最近在刷ACM经常用到排序，以前老是写冒泡，可把冒泡带到OJ里后发现经常超时，所以本想用快排，可是很多学长推荐用sort函数，因为自己写的快排写不好真的没有sort快，所以毅然决然选择sort函数 ...</div>
+            <div class="foot-information">
+              <div class="information-box">
+                <div class="time-box">2021-1-1</div>
+                <div class="property-box">文章</div>
+                <div class="broswer-number"><span class="glyphicon glyphicon-eye-open"></span> 40</div>
+                <div class="author">浅然言而信</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul class="pagination" id="pagination1"></ul>
+      </div>
+    </div>
+   
+    <div class="right-main_">
+        <div class="rtalk2">
+               <div class="thanks_csu">
+                   感谢中南大学创新创业中心的资助
+               </div>
+           </div>
+       
+            <div class="top_footer">
+                <p>中南团队 招贤纳士 创新项目</p>
+                <p><span class="glyphicon glyphicon-envelope"></span> 1923885137@qq.com <span class="glyphicon glyphicon-earphone"></span>18274309536</p>
+                <p class="copyright">&copy2020-now中南大学鸿浩学苑创新团队</p>
+                <p class="copyright"><span class="glyphicon glyphicon-home"></span>中南大学升华公寓</p>
+            </div>
+           
+        
+    </div>
+    </div>
+ </main>
+   </body>
+   <script src="../../js/jqPaginator.js"></script>
+   <script>
+       $('#pagination1').jqPaginator({
+    totalPages: 8,
+    visiblePages: 10,
+    currentPage: 1,
+ 
+    first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+    prev: '<li class="prev"><a href="javascript:void(0);">上一页</a></li>',
+    next: '<li class="next"><a href="javascript:void(0);">下一页</a></li>',
+    last: '<li class="last"><a href="javascript:void(0);">末页</a></li>',
+    page: '<li class="page"><a href="javascript:void(0);">{{page}}</a></li>',
+});
+//翻页栏的设置
+$('.top-filter>span').on("click",function(){
+     $(this).addClass('span-active');
+     $(this).siblings().removeClass("span-active");
+});
+//第一个导航栏的效果
+$('.sort-text>span').on("click",function(){
+    $(this).addClass('sort-span-active');
+     $(this).siblings().removeClass("sort-span-active");
+});
+
+window.onload=function () {
+    $.get("/Login/getSessionID",{},function (user) {
+        if(user===""){
+            alert("您还未登录，请尽快登录");
+        }else{
+            $("#login").css("visibility","hidden");
+            $("#user").css("display","block");
+        }
+    })
+}
+       $("#search").click(function () {
+           location.assign("/view/search_presentation");
+       })
+   </script>
+   </html>

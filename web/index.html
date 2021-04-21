@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鸿鹄学苑</title>
+   <meta name="description" content=""/>
+   <!--等待组员讨论-->
+   <meta name="keywords" content=""/> 
+   <link rel="icon" href="xueyuan.ico" type="image/x-icon">   
+   <link rel="stylesheet" href="css/backstage.css">
+   <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/jquery.filer.css">
+        <link rel="stylesheet" href="css/index.css">
+   <script src="js/jQuery-min.js"></script>
+   <script src="bootstrap/js/bootstrap.min.js"></script>
+   <script src="js/jquery-3.5.1.js"></script>
+   <script type="text/javascript" src="js/backstage.js"></script>
+        <script src="js/common.js"></script>
+   <style>
+       .main_box_resource {
+           position: relative;
+           width: 1200px;
+           align-items: flex-start;
+           display: flex;
+           justify-content: space-between;
+           margin: 0 auto;
+           overflow: hidden;}
+       body{
+           background-color: rgb(246, 246, 246);
+           background-size: cover;
+       }
+       body>header{
+           background-color: #fff;
+       }
+   </style>
+   </head>
+   <body>
+    <header>          
+        <div class="top_nav">
+         <ul class="nav nav-pills">
+             <li role="presentation" class="active"><a href="/">鸿浩学苑</a></li>
+             <li role="presentation"><a href="#">提问</a></li>
+             <li role="presentation"><a href="/view/article_presentation">树洞</a></li>
+           </ul>
+   
+
+         <form class="navbar-form navbar-left" role="search">
+             <div class="form-group">
+               <input type="text" class="form-control" placeholder="Search">
+             </div>
+             <button type="button" class="btn btn-default" id="search">搜索</button>
+           </form>
+ 
+     
+         <ul class="nav nav-pills">
+            <li role="presentation" id="login"><a href="/view/register">登陆/注册</a></li>
+            <li role="presentation " style="display: none;" id="user">
+               <a href="/view/backstage">个人中心</a>
+              </li>
+             <li role="presentation"><a href="#">收藏</a></li>
+             <li role="presentation"><a href="#">动态</a></li>
+             <li role="presentation"><a href="#">消息</a></li>
+           </ul>
+        </div>
+
+ </header>
+    <main>
+        <div class="main_box_resource">
+            <div class="first-main">
+                <div class="nav-select">
+                    <a  class = "active" href="#">智能推荐</a>
+                    <a href="#" id="question_part">问答</a>
+                    <a href="#" id="article_part">文章</a>
+                    <a href="#" id="resource_part">资源</a>
+                    <span class="glyphicon glyphicon-refresh" title="刷新获取更多内容"></span>
+                </div>
+                <div class="allresource-list">
+<!--                    <div class="article-box">-->
+<!--                        <div class="top-title">-->
+<!--                            <div class="left-title">大学生如何好好的学习高等数学</div>-->
+<!--                            <div class="property">文章</div>-->
+<!--                        </div>-->
+<!--                        <div class="article-content">-->
+<!--                            <div class="content-inner">中国教育报北京3月2日讯（记者 林焕新 唐琪）未成年人防性侵是近年来社汇，拼音是shǔ xìng。意思是人类对于一个对象的抽象方面的刻画.一个具体事物，总是有许许多多的性质与关系，我们把一个事物的性质与关系，都叫作事物的属性。事物与属性是不会关注的热点问题。2021全国两会在即，今天，一场关于“女童保护”的座谈会在京举行，多位全国人大代表、全国政协委员以及相关部门.....</div>-->
+<!--                            <div class="detail-button">详情</div>-->
+<!--                        </div>-->
+<!--                        <div class="foot-list">-->
+<!--                            &lt;!&ndash; <span class="glyphicon glyphicon-heart"></span> &ndash;&gt;-->
+<!--                            <span class=" glyphicon glyphicon-comment"> 发表评论</span>-->
+<!--                            <span class="glyphicon glyphicon-heart-empty"> 喜欢</span>-->
+<!--                            <span class="glyphicon glyphicon-share"> 分享</span>-->
+<!--                            <span class="glyphicon glyphicon-save"> 保存</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="question-box">-->
+<!--                        <div class="top-title">-->
+<!--                            <div class="left-title">能请问一下，怎么样才能更好的学习吗？</div>-->
+<!--                            <div class="property">提问</div>-->
+<!--                        </div>-->
+<!--                        &lt;!&ndash; <div class="question-user-name">匿名</div> &ndash;&gt;-->
+<!--                        <div class="user-name-box">-->
+<!--                            <span class="question-user-name">匿名</span><span class="question-user-name">发表</span>-->
+<!--                        </div>-->
+<!--                        <div class="foot-list">-->
+<!--                            &lt;!&ndash; <span class="glyphicon glyphicon-heart"></span> &ndash;&gt;-->
+<!--                            <span class=" glyphicon glyphicon-comment"> 发表评论</span>-->
+<!--                            <span class="glyphicon glyphicon-heart-empty"> 喜欢</span>-->
+<!--                            <span class="glyphicon glyphicon-share"> 分享</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="other-resource-box">-->
+<!--                        <div class="top-title">-->
+<!--                            <div class="left-title">这里是资源的标题</div>-->
+<!--                            <div class="property">资源</div>-->
+<!--                        </div>-->
+<!--                        <div class="resource-content">-->
+<!--                            <div class="resource-inner">-->
+<!--                                <div class="left-img"><div class="jFiler-items jFiler-row">-->
+<!--                                    <ul class="jFiler-items-list jFiler-items-default">-->
+<!--                                        <li class="jFiler-item" data-jfiler-index="0" style="">-->
+<!--                                            <div class="jFiler-item-container">-->
+<!--                                                <div class="jFiler-item-inner">-->
+<!--                                                    <div class="jFiler-item-icon pull-left">-->
+<!--                                                        <i class="icon-jfi-file-text jfi-file-ext-js"></i>-->
+<!--                                                    </div>-->
+<!--                                                    <div class="jFiler-item-info pull-left">-->
+<!--                                                        <div class="jFiler-item-title" title="jQuery-min.js">jQuery-min.js</div>-->
+<!--                                                        <div class="jFiler-item-others">-->
+<!--                                                            <span>size: 96.4 KB</span>-->
+<!--                                                            <span>type: js</span>-->
+<!--                                                            <span class="jFiler-item-status"></span>-->
+<!--                                                        </div>-->
+<!--                                                        <div class="jFiler-item-assets">-->
+<!--                                                        </div></div></div></div></li></ul></div></div>-->
+<!--                                &lt;!&ndash; 这里一定要记住去掉最后一个 class="icon-jfi-trash jFiler-item-trash-action" &ndash;&gt;-->
+<!--                                <div class="text-brief">这是这个资源是否好的简介阶级大这是这个资源是否好的简介阶级大这是这个资源是否好的简介阶级大</div>-->
+<!--                            </div>-->
+<!--                            <div class="detail-button">详情</div>-->
+<!--                        </div>-->
+<!--                        <div class="foot-list">-->
+<!--                            &lt;!&ndash; <span class="glyphicon glyphicon-heart"></span> &ndash;&gt;-->
+<!--                            <span class=" glyphicon glyphicon-comment"> 发表评论</span>-->
+<!--                            <span class="glyphicon glyphicon-heart-empty"> 喜欢</span>-->
+<!--                            <span class="glyphicon glyphicon-share"> 分享</span>-->
+<!--                            <span class="glyphicon glyphicon-save"> 保存</span>-->
+<!--                        </div>-->
+<!--                    </div>-->
+                    <ul class="pagination" id="pagination1"></ul>
+                </div>
+            </div>
+
+            <div class="right-main_">
+                <div class="rtalk2">
+                    <div class="thanks_csu">
+                        感谢中南大学创新创业中心的资助
+                    </div>
+                </div>
+
+                <div class="top_footer">
+                    <p>中南团队 招贤纳士 创新项目</p>
+                    <p><span class="glyphicon glyphicon-envelope"></span> 1923885137@qq.com <span class="glyphicon glyphicon-earphone"></span>18274309536</p>
+                    <p class="copyright">&copy2020-now中南大学鸿浩学苑创新团队</p>
+                    <p class="copyright"><span class="glyphicon glyphicon-home"></span>中南大学升华公寓</p>
+                </div>
+
+
+            </div>
+        </div>
+    </main>
+   
+   </body>
+   <script>
+       $(".nav-select>span").on("click",function(){
+           $(this).addClass('loading');
+           setTimeout(function(){
+               $(".nav-select>span").removeClass('loading');
+           },1500);
+       });
+       window.onload=function () {
+           $.post("Info/getQuestionBySort",{sort:0},function (data) {
+               questionPart=JSON.parse(data);
+               questionLast=addQuestion(questionPart,"allresource-list",questionLast);
+           })
+           $.get("/Login/getSessionID",{},function (user) {
+               if(user===""){
+                   alert("您还未登录，请尽快登录");
+               }else{
+                   $("#login").css("visibility","hidden");
+                   $("#user").css("display","block");
+               }
+           })
+       }
+       let questionPart=[];
+       let articlePart=[];
+       let resourcePart=[];
+       let questionLast=0;
+       let articleLast=0;
+       let resourceLast=0;
+
+       $("#question_part").on("click",function () {
+           $.post("Info/getQuestionBySort",{sort:0},function (data) {
+               questionPart=JSON.parse(data);
+               questionLast=addQuestion(questionPart,"allresource-list",questionLast);
+           })
+       })
+
+       $("#article_part").on("click",function () {
+           $.post("Info/getBlogInfoBySort",{sort:0},function (data) {
+               articlePart=JSON.parse(data);
+               articleLast=addArticle(articlePart,"allresource-list",articleLast)
+           })
+
+       })
+
+       $("#resource_part").on("click",function () {
+           $.post("Info/getFileInfoBySort",{sort:0},function (data) {
+               resourcePart=JSON.parse(data);
+               resourceLast=addResource(resourcePart,"allresource-list",resourceLast);
+           })
+
+       })
+
+       function addQuestion(questionPart,part,last) {
+           let div = $("." + part);
+           div.html("");
+           let l = questionPart.length;
+           let count=0;
+           for (let i = 0; i <5&&last+i<l; i++) {
+               count++;
+               div.append("<div class=\"question-box\">\n" +
+                   "<div class=\"top-title\">\n" +
+                   "<div class=\"left-title\">" + questionPart[i+last].title + "</div>\n" +
+                   "<div class=\"property\">提问</div>\n" +
+                   "</div>\n" +
+                   "<div class=\"user-name-box\">\n" +
+                   "<span class=\"question-user-name\">" + questionPart[i+last].user_id + "</span><span class=\"question-user-name\">发表</span>\n" +
+                   "</div>\n" +
+                   "<div class=\"foot-list\">\n" +
+                   "<span class=\" glyphicon glyphicon-comment\">发表评论</span>\n" +
+                   "<span class=\"glyphicon glyphicon-heart-empty\"> 喜欢</span>\n" +
+                   "<span class=\"glyphicon glyphicon-share\"> 分享</span>\n" +
+                   "</div>\n" +
+                   "</div>")
+           }
+           return last+count>=l?0:last+count;
+       }
+
+       function addArticle(articlePart,part,last) {
+           let div = $("." + part);
+           div.html("");
+           let l = articlePart.length;
+           let count=0;
+           for (let i = 0; i <5&&last+i<l; i++) {
+               count++;
+               let text=articlePart[i+last].text.substring(0,100);
+               div.append("<div class=\"article-box\">\n" +
+                   "<div class=\"top-title\">\n" +
+                   "<div class=\"left-title\">"+articlePart[i+last].title+"</div>\n" +
+                   "<div class=\"property\">文章</div>\n" +
+                   "</div>\n" +
+                   "<div class=\"article-content\">\n" +
+                   "<div class=\"content-inner\">"+text+"</div>\n" +
+                   "<div class=\"detail-button\">详情</div>\n" +
+                   "</div>\n" +
+                   "<div class=\"foot-list\">\n" +
+                   "<span class=\" glyphicon glyphicon-comment\"> 发表评论</span>\n" +
+                   "<span class=\"glyphicon glyphicon-heart-empty\"> 喜欢</span>\n" +
+                   "<span class=\"glyphicon glyphicon-share\"> 分享</span>\n" +
+                   "<span class=\"glyphicon glyphicon-save\"> 保存</span>\n" +
+                   "</div>\n" +
+                   "</div>")
+           }
+           return last+count>=l?0:last+count;
+       }
+
+       function addResource(resourcePart,part,last) {
+           let div = $("." + part);
+           div.html("");
+           let l = resourcePart.length;
+           let count=0;
+           for (let i = 0; i <5&&last+i<l; i++) {
+               count++;
+               div.append("<div class=\"other-resource-box\">\n" +
+                   "<div class=\"top-title\">\n" +
+                   "<div class=\"left-title\">"+resourcePart[i+last].file_name+"</div>\n" +
+                   "<div class=\"property\">资源</div>\n" +
+                   "</div>\n" +
+                   "<div class=\"resource-content\">\n" +
+                   "<div class=\"resource-inner\">\n" +
+                   "<div class=\"left-img\"><div class=\"jFiler-items jFiler-row\">\n" +
+                   "<ul class=\"jFiler-items-list jFiler-items-default\">\n" +
+                   "<li class=\"jFiler-item\" data-jfiler-index=\"0\" style=\"\">\n" +
+                   "<div class=\"jFiler-item-container\">\n" +
+                   "<div class=\"jFiler-item-inner\">\n" +
+                   "<div class=\"jFiler-item-icon pull-left\">\n" +
+                   "<i class=\"icon-jfi-file-text jfi-file-ext-js\"></i>\n" +
+                   "</div>\n" +
+                   "<div class=\"jFiler-item-info pull-left\">\n" +
+                   "<div class=\"jFiler-item-title\" title=\"jQuery-min.js\">jQuery-min.js</div>\n" +
+                   "<div class=\"jFiler-item-others\">\n" +
+                   "<span>"+resourcePart[i+last].size+"</span>\n" +
+                   "<span>type:"+resourcePart[i+last].type+"</span>\n" +
+                   "<span class=\"jFiler-item-status\"></span>\n" +
+                   "</div>\n" +
+                   "<div class=\"jFiler-item-assets\">\n" +
+                   "</div></div></div></div></li></ul></div></div>\n" +
+                   "<div class=\"text-brief\">"+resourcePart[i+last].file_text+"</div>\n" +
+                   "</div>\n" +
+                   "<div class=\"detail-button\">详情</div>\n" +
+                   "</div>\n" +
+                   "<div class=\"foot-list\">\n" +
+                   "<span class=\" glyphicon glyphicon-comment\"> 发表评论</span>\n" +
+                   "<span class=\"glyphicon glyphicon-heart-empty\"> 喜欢</span>\n" +
+                   "<span class=\"glyphicon glyphicon-share\"> 分享</span>\n" +
+                   "<span class=\"glyphicon glyphicon-save\"> 保存</span>\n" +
+                   "</div>\n" +
+                   "</div>")
+           }
+           return last+count>=l?0:last+count;
+       }
+
+       $("#search").click(function () {
+           location.assign("/view/search_presentation");
+       })
+
+   </script>
+   
+   </html>

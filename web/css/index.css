@@ -1,0 +1,187 @@
+.rtalk2{
+    position: relative;
+    margin-top: 20px;
+    width: 430px;
+    height: 185px;
+    background-color:  rgb(255,255,255);
+    background-image: url(../img/csu_fianced.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.rtalk2>.thanks_csu{
+    position: absolute;
+    bottom: 0;
+    font-size: medium;
+    font-weight: bold;
+    left: 20%;
+    color: #ff4d59;
+}
+.top_footer{
+
+    margin-top: 10px;
+}
+.top_footer{
+    line-height: 20px;
+    font-family: 'icomoon';
+    font-size: 15px;
+    color: #999aaa;
+    float: left;
+    margin-bottom: 15px;
+    word-spacing: 16px;
+}
+.first-main{
+    background-color: #fff;
+    width: 700px;
+    margin-top: 20px;
+}
+.nav-select{
+    position: relative;
+    width: 100%;
+    height: 58px;
+    border-bottom: 2px solid rgb(240,240,240);
+    display: flex;
+}
+.nav-select>a {
+   color: black;
+   font-weight: 500;
+   font-size: 16px;
+   margin: 0 22px;
+   line-height: 58px;
+   align-items: center;
+}
+.nav-select>a:hover {
+    color: #06f;
+    text-decoration: none;
+ }
+ .nav-select>a:link {
+    color: #06f;
+    text-decoration: none;
+ }
+ .nav-select>.active{
+     color: #06f;
+ }
+ .allresource-list>div[class$="-box"]{
+     height: 235px;
+     border: 1px solid rgb(225,225,225);
+     position: relative;
+ }
+ .allresource-list>div[class$="-box"]>.top-title{
+     height: 30px;
+     width: 100%;
+     margin-top: 20px;
+     margin-bottom: 20px;
+     padding: 0 25px;
+     display: flex;
+     justify-content: space-between;
+     /* background-color: #ff4d59; */
+ }
+ .allresource-list>div[class$="-box"]>.top-title>.left-title{
+     font-size: 18px;
+     font-weight: bold;
+     color: rgb(18,18,18);
+     line-height: 30px;
+     cursor: pointer;
+ }
+ .allresource-list>div[class$="-box"]>.top-title>.property{
+    color: #fc5531;
+    font-size: 18px;
+    background: #fff5f2;
+    line-height: 30px;
+ }
+ .article-content{
+     padding: 10px;
+ }
+ .resource-content{
+    padding: 10px;
+    cursor: pointer;
+ }
+ .content-inner{
+    display: inline-block;
+    color: #666;
+    font-size: 15px;
+    text-indent: 30px;
+    line-height: 25px;
+    cursor: pointer;
+ }
+ .content-inner:hover{
+    color: rgb(18,18,18);
+ }
+ .detail-button{
+    display: block;
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+ }
+ .detail-button:hover{
+     color:  #06f;
+ }
+ .foot-list{
+     position: absolute;
+     height: 30px;
+     width: 100%;
+     bottom: 5px;
+     color: #666;
+     padding: 0 30px;
+     user-select: none;
+ }
+ .foot-list>span{
+     cursor: pointer;
+     line-height: 30px;
+     font-size: 16px;
+     margin: 0 15px 0 0;
+ }
+ .foot-list>span:hover{
+    color:  #06f;
+}
+.foot-list>.glyphicon.glyphicon-heart{
+    color:  #06f;
+}
+.resource-inner{
+    display: flex;
+    justify-content: space-between;
+}
+.left-img{
+    width: 250px;
+}
+.text-brief{
+    width: 400px;
+    color: #666;
+    font-size: 15px;
+    text-indent: 30px;
+    line-height: 25px;
+    cursor: pointer;
+    text-indent: 20px;
+}
+.allresource-list>div[class$="question-box"]{
+    height: 140px;
+    border: 1px solid rgb(225,225,225);
+    position: relative;
+}
+.question-user-name{
+    color: #fc5531;
+    font-size: 15px;
+    background: #fff5f2;
+    line-height: 30px;
+    border-radius: 4px;
+}
+.user-name-box{
+    margin-left: 25px;
+    cursor: pointer;
+}
+.allresource-list>ul{
+    margin-left: 80px;
+}
+.nav-select>span{
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 1.5s;
+    transform-origin:10px 10px;
+}
+.nav-select>.loading{
+
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}

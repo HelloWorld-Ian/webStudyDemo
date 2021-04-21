@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>鸿鹄学苑  用户中心</title>
+   <meta name="description" content=""/>
+   <!--等待组员讨论-->
+   <meta name="keywords" content=""/> 
+   <link rel="icon" href="../../xueyuan.ico" type="image/x-icon">
+   <link rel="stylesheet" href="../../css/backstage.css">
+   <link rel="stylesheet" href="../../bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="../../css/storage.css">
+   <link rel="stylesheet" href="../../css/easydropdown.css">
+   <script src="../../js/jQuery-min.js"></script>
+<!--   <script src="../../js/backstage.js"></script>-->
+   <script src="../../bootstrap/js/bootstrap.min.js"></script>
+   <script src="../../js/jquery.easydropdown.min.js"></script>
+   <script src="../../js/jqPaginator.js"></script>
+</head>
+ <style>
+   
+   .main_box_resource {
+    position: relative;
+    width: 1200px;
+    height: 1100px;
+    margin: 0 auto;
+    background-color: rgb(246, 246, 246);
+    overflow: hidden;
+    }
+   
+ </style>
+ <body>
+  <header>
+            
+    <div class="top_nav">
+     <ul class="nav nav-pills">
+         <li role="presentation" class="active"><a href="/">鸿浩学苑</a></li>
+         <li role="presentation"><a href="#">提问</a></li>
+         <li role="presentation"><a href="#">树洞</a></li>
+       </ul>
+
+
+     <form class="navbar-form navbar-left" role="search">
+         <div class="form-group">
+           <input type="text" class="form-control" placeholder="Search">
+         </div>
+         <button type="button" class="btn btn-default" id="search">搜索</button>
+       </form>
+
+ 
+     <ul class="nav nav-pills">
+         <li role="presentation" id="login"><a href="/view/register">登陆/注册</a></li>
+         <li role="presentation " style="display: none;" id="user">
+             <a href="/view/backstage">个人中心</a>
+         </li>
+         <!-- 个人中心 这个部分先隐藏 -->
+         <li role="presentation"><a href="#">收藏</a></li>
+         <li role="presentation"><a href="#">动态</a></li>
+         <li role="presentation"><a href="#">消息</a></li>
+       </ul>
+    </div>
+
+</header>
+ <main>
+       
+    <div class="main_box_resource">
+        <div class="left_nav">
+            <ul class="menu">
+              <li class="item">
+                <a href="/view/backstage" class="btn_nav"><i class="iconfont"></i>首页</a>
+              </li>
+              <li class="item" >
+                <a href="javascript:void(0);" class="btn_nav"><i class="iconfont "></i>提问与创作</a>
+                <div class="smenu">
+                    <a href="/view/backstage-question">提问题</a>
+                    <a href="/view/backstage-question">答问题</a>
+                    <a href="/view/backstage-writing">写文章</a>
+                </div>
+              </li>
+              <li class="item">
+                <a href="javascript:void(0);" class="btn_nav"><i class="iconfont "></i>资源管理</a>
+                <div class="smenu">
+                    <a href="/view/backstage_resource">上传资源</a>
+                    <a href="/view/backstage_storage">资源仓库</a>
+                </div>
+              </li>
+              <li class="item">
+                <a href="javascript:void(0);" class="btn_nav"><i class="iconfont "></i>设置</a>
+                <div class="smenu" >
+                  <a href="javascript:void(0);">账号密码</a>
+                  <a href="javascript:void(0);">其它</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+        <div class="right_main">
+          <div class="indication-first">
+            <div class="main-nav-pills">
+            <ul class="pills-list">
+              <li class="pills-li li-active" id="file"><span>个人资源</span></li>
+              <li class="pills-li" id="article"><span>我的文章</span></li>
+              <li class="pills-li"><span>公开</span></li>
+              <li class="pills-li"><span>私密</span></li>
+              <li class="pills-li"><span>回收站</span></li>
+            </ul>
+            </div>
+            <!-- 第一行分类栏 -->
+            <div class="search_box">
+              <select class="dropdown">
+                <option value="全部">全部</option>
+                <option value="大学基础课">大学基础课</option>
+                <option value="本科专业课">本科专业课</option>
+                <option value="个人收藏">个人收藏</option>
+                <option value="文学娱乐">文学娱乐</option>
+                <option value="其他">其他</option>
+            </select>
+            <div class="input-search">
+              <input type="text" autocomplete="off" placeholder="请输入关键字" class="special-select" >
+              <input type="button" value="筛选" class="special-select-button">
+            </div>
+
+            </div>
+            <!-- 第二行分类栏以及搜索框 -->
+            <div class="resource-manage-list-box">
+              <div class="search-none"  style="display: none;">
+             <div class="blank_titile">这里什么也没有</div>
+             <div class="other-choose">
+              <button type="button" class="btn btn-danger btn-lg">写文章</button>
+              <span>or</span>
+              <button type="button" class="btn btn-info btn-lg">上传资源</button>
+             </div>
+              </div>
+               <!-- 仓库未空时，或者未搜索到内容时的信息盒子（默认隐藏） -->
+              <div class="search-list">
+<!--                <div class="search-list-item-resource">-->
+<!--                  <div class="list-item-title">-->
+<!--                    <p class="article-list-item-text"><a>这里放标题这里放标题这里放标题</a></p>-->
+<!--                  </div>-->
+<!--                  <div class="list-item-brief">-->
+<!--                   <p class="brief-intro-text">这里放简介这里放简介这里放简介</p>-->
+<!--                  </div>-->
+<!--                  <div class="list-item-edit">-->
+<!--                    <div class="left-item-show">-->
+<!--                      <span>这里放上次修改/上传的时间</span>-->
+<!--                    </div>-->
+<!--                    <div class="right-item-show">-->
+<!--                      <a href="#"><span class="right-item-show-text">下载</span></a>-->
+<!--                      <a href="#"><span class="right-item-show-text">删除</span></a>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+              </div>
+<!--                <div class="search-list-item-article">-->
+<!--                    <div class="list-item-title">-->
+<!--                        <p class="article-list-item-text"><a>这里是文章的盒子</a></p>-->
+<!--                    </div>-->
+<!--                    <div class="list-item-brief">-->
+<!--                        <p class="brief-intro-text">这里放简介这里放简介这里放简介</p>-->
+<!--                    </div>-->
+<!--                    <div class="list-item-brief">-->
+<!--                        <p class="brief-intro-text">这里放开放/匿名</p>-->
+<!--                        <p class="brief-intro-text">如果是草稿这里放草稿</p>-->
+<!--                    </div>-->
+<!--                    <div class="list-item-edit">-->
+<!--                        <div class="left-item-show">-->
+<!--                            <span>这里放上次修改/上传的时间</span>-->
+<!--                        </div>-->
+<!--                        <div class="right-item-show">-->
+<!--                            <a href="backstage-writing.html"><span class="right-item-show-text">修改</span></a>-->
+<!--                            <a href="#"><span class="right-item-show-text">删除</span></a>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <ul class="pagination" id="pagination1"></ul>
+            </div>
+            </div>
+         </div>
+      
+    </div>
+
+</main>
+<script>
+
+  $(function(){
+    $(".pills-li").on("click",function(){
+      $(this).addClass("li-active");
+      $(this).siblings().removeClass("li-active");
+    })
+      $.get("/Login/getSessionID",{},function (user) {
+          if(user===""){
+              alert("您还未登录，请尽快登录");
+          }else{
+              $("#login").css("visibility","hidden");
+              $("#user").css("display","block");
+          }
+      })
+      $(".btn_nav").on("click",function(){
+          $(this).siblings(".smenu").toggleClass("maxmore");
+          $(this).parent().siblings(".item").find(".smenu").removeClass("maxmore");
+      });
+  })
+  let jsonArray=[];
+  let len=jsonArray.length;
+  let condition=0;
+  window.onload=function () {
+      $.ajax({
+          url:"/Info/getFileInfo",
+          async:false,
+          success:function (data) {
+              jsonArray=JSON.parse(data);
+              len=jsonArray.length;
+              let area=$(".search-list");
+          }
+      })
+      let maxPages=Math.ceil(len/6);
+      $.jqPaginator('#pagination1', {
+          totalPages: maxPages,
+          visiblePages:maxPages>=5?5:maxPages,
+          currentPage: 1,
+          onPageChange: function (num) {
+              let area=$(".search-list");
+              area.html("");
+              for(let i=(num-1)*6;i<num*6&&i<len;i++){
+                  if(condition===0) {
+                      addBox(jsonArray[i],area);
+                  }else if(condition===1){
+                      addBoxBlog(jsonArray[i],area);
+                  }
+              }
+              area.append(" <ul class=\"pagination\" id=\"pagination1\"></ul>")
+          }
+      });
+  }
+
+  const addBox = function (json,area) {
+      area.append("<div class=\"search-list-item-resource\">" +
+          "<div class=\"list-item-title\">" +
+          "<p class=\"article-list-item-text\">"+json.file_name+"</p>\n" +
+          "</div>" +
+          "<div class=\"list-item-brief\">" +
+          "<p class=\"brief-intro-text\">"+json.file_text+"</p>" +
+          "</div>" +
+          "<div class=\"list-item-edit\">" +
+          "<div class=\"left-item-show\">" +
+          "<span>"+json.file_time+"</span>" +
+          "</div>" +
+          "<div class=\"right-item-show\">" +
+          "<a href=\"#\" id=\""+json.file_realName+"\" class=\"download\" ><span class=\"right-item-show-text\" >下载</span></a>" +
+          "<a href=\"#\" id=\""+json.file_realName+"\" class=\"delete\" ><span class=\"right-item-show-text\" >删除</span></a>"  +
+          "</div>" +
+          "</div>" +
+          "</div>")
+  };
+  const addBoxBlog = function (json,area) {
+      area.append("<div class=\"search-list-item-resource\">" +
+          "<div class=\"list-item-title\">" +
+          "<p class=\"article-list-item-text\">"+json.title+"</p>\n" +
+          "</div>" +
+          "<div class=\"list-item-brief\">" +
+          "<p class=\"brief-intro-text\">"+json.briefIntro+"</p>" +
+          "</div>" +
+          "<div class=\"list-item-edit\">" +
+          "<div class=\"left-item-show\">" +
+          "<span>"+json.time+"</span>" +
+          "</div>" +
+          "<div class=\"right-item-show\">" +
+          "<a href=\"/view/article_presentation?blog_id="+json.blog_id+"&title="+json.title+"\" id=\""+json.blog_id+"\" class=\"read\" ><span class=\"right-item-show-text\" >阅读</span></a>" +
+          "<a href=\"#\" class=\"delete\" ><span class=\"right-item-show-text\" >删除</span></a>"  +
+          "</div>" +
+          "</div>" +
+          "</div>")
+  };
+
+  // $(document).on("click",".read",function () {
+  //     window.open($(this)[0].href);
+  // })
+
+  $(document).on("click",".download",function () {
+      let file_realName=$(this).attr("id");
+      download("/FileOperate/download"+"?file_realName="+file_realName,file_realName);
+  })
+  $(document).on("click",".delete",function () {
+      let file_realName=$(this).attr("id");
+      $.ajax({
+          url:"/FileOperate/delete",
+          async:false,
+          data:{file_realName:file_realName},
+          success:function (data) {
+              if(data===false){
+                          alert("出现错误");
+                       }else{
+                           alert("success");
+                       }
+          }
+      })
+  })
+  const download=function (url,fileName) {
+      const xhr = new XMLHttpRequest();
+      xhr.open("get", url);
+      xhr.responseType = "blob";
+      xhr.send();
+      xhr.onload = function () {
+          if (this.status === 200 || this.status === 304) {
+              if ('msSaveOrOpenBlob' in navigator) {
+                  navigator.msSaveOrOpenBlob(this.response, name);
+                  return;
+              }
+              const url=URL.createObjectURL(this.response)
+              const download = document.createElement('a');
+              download.href = url;
+              download.download = fileName;
+              document.body.appendChild(download);
+              download.click();
+              document.body.removeChild(download);
+          }
+      }
+  }
+  $(document).on("click","#file",function () {
+      location.reload();
+  })
+  $(document).on("click","#article",function () {
+      $.ajax({
+          url:"/Info/getBlogInfo",
+          async:false,
+          success:function (data) {
+              jsonArray=JSON.parse(data);
+              len=jsonArray.length;
+              condition=1;
+              let maxPages=Math.ceil(len/6);
+              $.jqPaginator('#pagination1', {
+                  totalPages: maxPages,
+                  visiblePages:maxPages>=5?5:maxPages,
+                  currentPage: 1,
+                  onPageChange: function (num) {
+                      let area=$(".search-list");
+                      area.html("");
+                      for(let i=(num-1)*6;i<num*6&&i<len;i++){
+                          if(condition===0) {
+                              addBox(jsonArray[i],area);
+                          }else if(condition===1){
+                              addBoxBlog(jsonArray[i],area);
+                          }
+                      }
+                      area.append(" <ul class=\"pagination\" id=\"pagination1\"></ul>")
+                  }
+              });
+          }
+      })
+  })
+  $("#search").click(function () {
+      location.assign("/view/search_presentation");
+  })
+</script>
+ </body>
+</html>
